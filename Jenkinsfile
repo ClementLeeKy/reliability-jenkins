@@ -4,12 +4,8 @@ node {
 
 		def customImage = docker.build("clementleeky/reliability)"
 
-		docker.run(customImage)
+		customImage.run()
 
 		println("Container is running!")
-
-		container.stop()
-
-		println("Container has stopped!")
 	}
 }
