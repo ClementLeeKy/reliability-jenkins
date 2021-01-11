@@ -1,7 +1,7 @@
 node {
 	checkout scm
 	
-	docker.build('nichostst/reliability').run('-p 8501:8501') {
+	docker.image('nichostst/reliability').withRun('-p 8501:8501') {
 		println("Container is running!")
 	}
 	
