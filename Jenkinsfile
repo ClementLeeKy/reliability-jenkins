@@ -3,9 +3,9 @@ node {
 	
 	def customImage = docker.image('nichostst/reliability')
 	
-	customImage.withRun('-p 8501:8501') {
-		println("Container is running!")
-	}
+	customImage.run('-p 8501:8501')
+	
+	println("Container is running!")
 	
 	Container.stop {
 		println("Container has stopped!")
