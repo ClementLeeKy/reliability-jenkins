@@ -7,7 +7,7 @@ WORKDIR /reliability
 
 COPY . /reliability
 
-RUN pip install -r requirements.txt
+//RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
