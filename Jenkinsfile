@@ -2,7 +2,7 @@ pipeline {
 	agent {
 		dockerfile {
 			filename 'Dockerfile'
-			dir '.'
+			dir $(pwd)
 			args ''
 		}
 	}
@@ -18,7 +18,7 @@ pipeline {
 		stage('Run & Stop') {
 			steps  {
 				sh '''
-				docker build -t "clementleeky-reliability" .
+				docker build -t "clementleeky-reliability" $(pwd)
 				docker run --name reliability-container clementleeky-reliability -p 8501:8501
 				echo 'Container started'
 				docker stop reliability-container
