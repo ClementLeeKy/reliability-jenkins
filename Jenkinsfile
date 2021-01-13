@@ -18,8 +18,8 @@ pipeline {
 		stage('Run & Stop') {
 			steps  {
 				sh '''
-				docker build -t "clementleeky-reliability" $(pwd)
-				docker run --name reliability-container clementleeky-reliability -p 8501:8501
+				docker build ubuntu . 
+				docker run --name reliability-container ubuntu 
 				echo 'Container started'
 				docker stop reliability-container
 				echo 'Container stopped'
