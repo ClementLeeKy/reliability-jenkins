@@ -7,8 +7,4 @@ WORKDIR /reliability
 
 COPY . /reliability
 
-//RUN pip install -r requirements.txt
-
 EXPOSE 8501
-
-CMD ["streamlit", "run", "src/main.py"]
