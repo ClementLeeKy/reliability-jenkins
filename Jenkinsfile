@@ -6,8 +6,5 @@ node {
 	def customContainer = customImage.run('-p 8501:8501')
 	
 	println("Container is running!")  
-	
-	customContainer.stop()
-	
-	println("Container stopped!")
+
 }
