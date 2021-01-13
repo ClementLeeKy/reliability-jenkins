@@ -3,7 +3,7 @@ FROM python:3.7-slim-buster
 LABEL maintainer = "Nicholas ST <nichostst@gmail.com>"
 LABEL version = "0.1"
 
-ENV MSYS_NO_PATCHCONV = 1
+ENV MSYS_NO_PATHCONV=1
 
 WORKDIR /reliability
 
