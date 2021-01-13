@@ -5,9 +5,9 @@ LABEL version = "0.1"
 
 WORKDIR /reliability
 
-RUN pip install -r requirements.txt
-
 COPY . /reliability
+
+RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
