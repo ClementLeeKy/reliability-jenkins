@@ -17,11 +17,11 @@ pipeline {
 		}
 		stage('Run & Stop') {
 			steps  {
+				def customImage = docker.build("clementleeky/demo")
+				def customContainer = customImage.run('-p 8501:8501')
+				echo 'Container run'
 				sh '''
-				docker build "reliability-image" .
-				MYSYS_NO_PATHCONV=1 docker run --name reliability-container reliability-image 
-				echo 'Container started'
-				docker stop reliability-container
+				docker stop customContainer
 				echo 'Container stopped'
 				'''
 			}
