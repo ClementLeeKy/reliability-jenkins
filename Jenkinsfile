@@ -8,10 +8,12 @@ pipeline {
 	}
 	stages {
 		stage ('Checkout') {
-			sh '''
-			rm -rf /var/lib/jenkins/workspace/*
-			'''
-			checkout scm
+			steps {
+				sh '''
+				rm -rf /var/lib/jenkins/workspace/*
+				'''
+				checkout scm
+			}
 		}
 		stage('Run & Stop') {
 			steps  {
