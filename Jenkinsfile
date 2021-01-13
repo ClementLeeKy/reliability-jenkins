@@ -1,15 +1,16 @@
 node {
 	checkout scm
 	
-	//def customImage = docker.build("clementleeky/reliability-image")
-	
-	docker.image('ubuntu').withRun() {
-		println("Container is running!")
+	stages {
+		stage('Run & Stop') {
+			steps  {
+				sh '''
+				docker build -t "clementleeky-reliability" .
+				docker run -t reliability-container clementleeky-reliability -p 8501:8501
+			        echo 'Container started'
+				docker stop reliability-container
+				echo 'Container stopped'
+				'''
+			}
 	}
 }
-	
-//	def customContainer = customImage.withRun('-p 8501:8501') {
-	
-//	println("Container is running!")  
-//   }
-// }
