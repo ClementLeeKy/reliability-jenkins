@@ -18,8 +18,8 @@ pipeline {
 		stage('Run & Stop') {
 			steps  {
 				sh '''
-				docker build ubuntu .
-				MYSYS_NO_PATHCONV=1 docker run --name reliability-container ubuntu 
+				docker build "reliability-image" .
+				MYSYS_NO_PATHCONV=1 docker run --name reliability-container reliability-image 
 				echo 'Container started'
 				docker stop reliability-container
 				echo 'Container stopped'
