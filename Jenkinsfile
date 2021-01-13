@@ -17,7 +17,8 @@ pipeline {
 		}
 		stage('Run & Stop') {
 			steps  {
-				docker.build("clementleeky/reliability-image").run('-p 8501:8501')
+				docker build "clementleeky/reliability-image"
+				docker run -p 8501:8501
 				sh '''
 				docker images
 				docker stop customContainer
