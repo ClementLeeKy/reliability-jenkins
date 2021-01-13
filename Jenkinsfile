@@ -6,4 +6,8 @@ node {
 	customImage.run('-p 8501:8501')
 	
 	println("Container is running!")  
+	
+	docker.stopContainer()
+	
+	println("Container stopped!")
 }
