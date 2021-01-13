@@ -5,5 +5,5 @@ node {
 	
 	customImage.run('-p 8501:8501')
 	
-	println("Container is running!)  
+	println("Container is running!")  
 }
