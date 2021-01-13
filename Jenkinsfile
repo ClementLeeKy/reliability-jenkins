@@ -12,5 +12,6 @@ node {
 				echo 'Container stopped'
 				'''
 			}
+		}
 	}
 }
