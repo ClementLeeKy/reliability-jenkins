@@ -1,8 +1,7 @@
-node {
-	checkout scm
-}
-	
 stages {
+	stage ('Checkout') {
+		checkout scm
+	}
 	stage('Run & Stop') {
 		steps  {
 			sh '''
