@@ -17,10 +17,11 @@ pipeline {
 		}
 		stage('Run & Stop') {
 			steps  {
-				def customImage = docker.build("clementleeky/demo")
-				def customContainer = customImage.run('-p 8501:8501')
-				echo 'Container run'
+				def customImage = docker.build("clementleeky/reliability-image")
+				customImage.run('-p 8501:8501')
+				println("Container is running!")
 				sh '''
+				docker images
 				docker stop customContainer
 				echo 'Container stopped'
 				'''
