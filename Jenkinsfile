@@ -1,13 +1,13 @@
 node {
 	checkout scm
 	
-	def customImage = docker.build("reliability-image")
-	customImage.run('-p 8501:8501')
+	def image = docker.build(reliability-image, .)
+	def container = image.run(--name streamlit-container)
+	println('Container is running!')
 	
-	echo 'Container is running!'
-	sh 'docker stop customContainer'
-	echo 'Container has stopped running!'
+	container.stop()
+	println('Container has stopped')
 }
-
+	
 	
 	
