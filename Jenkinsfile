@@ -1,13 +1,24 @@
 node {
 	checkout scm
 	
-	def image = docker.build("reliability-image", '.')
-	def container = image.run('--name ' + "streamlit-container")
-	println('Container is running!')
+	stage('Build & Run Docker Image') {
+		sh '''
+		docker build -t "reliability" .
+		docker run -p 8501:8501 --name rel-container reliability
+		'''
+		echo "Container started"
+	}
 	
-	container.stop()
-	println('Container has stopped')
+	stage('Stop Docker Container') {
+		sh '''
+		docker stop rel-container
+		'''
+		echo "Container stopped"
+	}
 }
 	
+	
+		
+
 	
 	
