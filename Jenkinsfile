@@ -2,7 +2,7 @@ node {
 	checkout scm
 	
 	def image = docker.build(reliability-image, '.')
-	def container = image.run('--name ' streamlit-container)
+	def container = image.run('--name ' + streamlit-container)
 	println('Container is running!')
 	
 	container.stop()
